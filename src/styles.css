@@ -1,0 +1,19 @@
+/* You can add global styles to this file, and also import other style files */
+.custom-grey {
+  color: #aaa;
+}
+.font1 {
+  font-size: 16px;
+}
+.color-red {
+  color: red;
+}
+.float-left {
+  float: left;
+}
+.float-right {
+  float: right;
+}
+.margin-right-5 {
+  margin-right: 5px;
+}

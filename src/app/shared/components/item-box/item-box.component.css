@@ -1,0 +1,33 @@
+.list-item {
+  height: 194px;
+  padding: 30px 0;
+  border-bottom: 1px solid #ddd;
+}
+div.item-img {
+  /*width: 152px;*/
+  /*height: 126px;*/
+  border: 1px solid #ddd;
+  padding:16px;
+  display: inline-block;
+  float: left;
+}
+div.item-img img {
+  width: 122px;
+}
+div.inner {
+  position: relative;
+  float: left;
+  padding: 0 22px;
+}
+div.item-title a {
+  font-size: 24px;
+}
+div.txt {
+  display: inline-block;
+  float: left;
+  line-height: 28px;
+  margin-top: 15px;
+}
+.padding-left-48 {
+  padding-left: 48px;
+}

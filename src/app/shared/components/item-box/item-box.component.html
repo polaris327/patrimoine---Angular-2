@@ -1,0 +1,18 @@
+<div *ngFor="let item of items">
+  <div class="list-item clearfix">
+    <div class="item-img">
+      <a [routerLink]="'/details'"><img src="{{item.image}}" alt=""></a>
+    </div>
+    <div class="inner">
+      <div class="item-title">
+        <a [routerLink]="'/details'"  class="color-red">{{item.title}}</a>
+      </div>
+      <div class="txt">
+        <p align="left">Adresse<br/>Arrondissement<br/>classement</p>
+      </div>
+      <div class="txt padding-left-48 custom-grey">
+        <p align="left">{{item.address}}<br/>{{item.arrondissement}}<br/><span class="color-red">{{item.classement}}</span></p>
+      </div>
+    </div>
+  </div>
+</div>
