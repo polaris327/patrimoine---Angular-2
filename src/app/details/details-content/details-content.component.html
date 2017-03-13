@@ -1,36 +1,35 @@
 <section class="content-bg">
-  <div class="details-content">
-    <div class="notice-container">
-      <div class="details-left-panel">
-        <div class="item-img">
-          <a [routerLink]="'../'"><img src="../../../assets/img/PH-city1.jpg" alt=""></a>
+  <div class="notice-container" *ngIf="length > 0">
+    <div class="row">
+      <div class="col-sm-4 details-left-panel">
+        <div class="details-img">
+          <a (click)="onOpenModal()"><img [src]="itemData.image" alt=""></a>
         </div>
         <div class="social-btns">
-          <a [routerLink]="'../list-of-topics?id = 343'"><img src="../../../assets/img/tw.png" alt=""></a>
-          <a [routerLink]="'../list-of-topics?id = 343'"><img src="../../../assets/img/fb.png" alt=""></a>
-          <a [routerLink]="'../list-of-topics?id = 343'"><img src="../../../assets/img/google.png" alt=""></a>
-          <a [routerLink]="'../list-of-topics?id = 343'"><img src="../../../assets/img/pinterest.png" alt=""></a>
-          <a [routerLink]="'../list-of-topics?id = 343'"><img src="../../../assets/img/email.png" alt=""></a>
+          <a [routerLink]="''"><img src="../../../assets/img/tw.png" alt=""></a>
+          <a [routerLink]="''"><img src="../../../assets/img/fb.png" alt=""></a>
+          <a [routerLink]="''"><img src="../../../assets/img/google.png" alt=""></a>
+          <a [routerLink]="''"><img src="../../../assets/img/pinterest.png" alt=""></a>
+          <a [routerLink]="''"><img src="../../../assets/img/email.png" alt=""></a>
+          <!--<a [routerLink]="'mailto: webguru.p327@yandex.com'"><img src="../../../assets/img/email.png" alt=""></a>-->
+          <!--<a [routerLink]="mailIT('mailto:webguru.p327@yandex.com')"><img src="../../../assets/img/email.png" alt=""></a>-->
         </div>
         <div class="map-box">
-          <img src="../../../assets/img/map.png" alt="">
+          <!--<img src="../../../assets/img/map.png" alt="">-->
+          <app-googlemap [items]="itemData"></app-googlemap>
         </div>
       </div>
-      <div class="details-right-panel">
-        <div class="item-title">
-          <a [routerLink]="'../'"  class="color-red">< retour à l’accueil</a>
-        </div>
-        <!--<div class="item-title">-->
-          <!--<a [routerLink]="'../list-of-topics'"  class="color-red">MORILLION</a>-->
-        <!--</div>-->
-        <p class="item-title color-red">MORILLION</p>
-        <div class="txt">
+      <div class="col-sm-8 details-right-panel">
+        <a (click)="goBack()" class="backtohome-btn color-red">< retour à l’accueil</a>
+        <h1 class="color-red">{{itemData.title}}</h1>
+        <div class="fonttype1">
           <p align="left">Cotation<br/>Operation<br/>Adresse<br/>Arrondissement<br/>Date de reception<br/>HP<br/>Architecte<br/>Boite Ariane<br/>Nommage<br/>Dimensions<br/>Photographe<br/><br/>Permalien</p>
         </div>
-        <div class="txt padding-left-48 custom-grey">
-          <p align="left">Cotation<br/>Operation<br/>Adresse<br/>Arrondissement<br/>Date de reception<br/>HP<br/>Architecte<br/>Boite Ariane<br/>Nommage<br/>Dimensions<br/>Photographe<br/><br/>Permalien</p>
+        <div class="fonttype1 padding-left-107 custom-grey">
+          <p align="left">{{itemData.cotation}}<br/>{{itemData.title}}<br/>{{itemData.address}}<br/>{{itemData.arrondissement}}<br/>{{itemData.dateofreceipt}}<br/>{{itemData.HP}}<br/>{{itemData.architecte}}<br/>{{itemData.boiteariane}}<br/>{{itemData.nommage}}<br/>{{itemData.dimensions}}<br/>{{itemData.photographe}}<br/><br/>{{itemData.permalian}}</p>
         </div>
       </div>
     </div>
+    <app-pic-modal [items]="itemData"></app-pic-modal>
   </div>
 </section>

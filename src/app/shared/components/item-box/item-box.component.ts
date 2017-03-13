@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-item-box',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ItemBoxComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit() {
   }
@@ -30,4 +33,11 @@ export class ItemBoxComponent implements OnInit {
       classement: 'Paris Habitat'
     }
   ]
+
+  private gotoDetails(data:any):void {
+    let navigationExtras = {
+      queryParams: { 'id': data.id }
+    };
+    this.router.navigate(['/details'], navigationExtras);
+  }
 }

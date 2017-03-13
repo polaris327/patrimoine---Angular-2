@@ -2,90 +2,13 @@
   <div class="notice-container">
     <div class="row">
       <div class="col-sm-8 content-main">
-        <h1 class="notice-txt color-red">Notices</h1>
-        <p class="font1 custom-grey">2 result(s)</p>
-        <span class="font1 custom-grey">Filter by:</span> <span class="search-tag">Paris Habitat <span style="color: #967a0b;">x</span></span>
-        <div class="fliter-box">
-          <select class="filter-sel float-left">
-            <option>Resultats par page : 10</option>
-            <option>Resultats par page : 20</option>
-            <option>Resultats par page : 30</option>
-          </select>
-          <select class="filter-sel float-right selectpicker">
-            <option data-icon="glyphicon glyphicon-menu-hamburgur">Notices courtes</option>
-            <option data-icon="glyphicon glyphicon-ok">Notices courtes 2</option>
-          </select>
-          <select class="filter-sel float-right margin-right-5">
-            <option>Trie par : Pertinence</option>
-            <option>Trie par : Pertinence 2</option>
-          </select>
-        </div>
-
+        <app-notices-box></app-notices-box>
         <app-item-box></app-item-box>
-
-        <p class="footer-txt font1 custom-grey">1-2/2result(s)</p>
-
+        <p class="footer-txt fontsize-16 custom-grey">1-2/2result(s)</p>
       </div>
       <div class="col-sm-3 sidebar-box">
-        <div class="top-search-bar">
-          <form>
-            <h2 class="color-sidebar-txt">Recherche</h2>
-            <input type="text" name="search" id="search" placeholder="search..."><br/>
-            <input type="checkbox" name="fulltext" value="fulltext"> <span class="custom-grey">Inclure le plein-texte</span><br>
-            <input type="checkbox" name="bookmarks" value="bookmarks"> <span class="custom-grey">Inclure les signets</span><br>
-            <button type="submit" name="send" id="send">Envoyer <span class="glyphicon glyphicon-search"></span></button>
-          </form>
-        </div>
-        <div class="bottom-search-option">
-          <h2 class="color-sidebar-txt">Classement</h2>
-          <div class="sidebar-select-box">
-            <select class="sidebar-select">
-              <option></option>
-              <option></option>
-              <option></option>
-            </select>
-          </div>
-          <h2 class="color-sidebar-txt">Operation</h2>
-          <div class="sidebar-select-box">
-            <select class="sidebar-select">
-              <option></option>
-              <option></option>
-              <option></option>
-            </select>
-          </div>
-          <h2 class="color-sidebar-txt">Date de reception</h2>
-          <div class="sidebar-select-box">
-            <select class="sidebar-select">
-              <option></option>
-              <option></option>
-              <option></option>
-            </select>
-          </div>
-          <h2 class="color-sidebar-txt">Architecte</h2>
-          <div class="sidebar-select-box">
-            <select class="sidebar-select">
-              <option></option>
-              <option></option>
-              <option></option>
-            </select>
-          </div>
-          <h2 class="color-sidebar-txt">Boite Ariane</h2>
-          <div class="sidebar-select-box">
-            <select class="sidebar-select">
-              <option></option>
-              <option></option>
-              <option></option>
-            </select>
-          </div>
-          <h2 class="color-sidebar-txt">Photographe</h2>
-          <div class="sidebar-select-box">
-            <select class="sidebar-select">
-              <option></option>
-              <option></option>
-              <option></option>
-            </select>
-          </div>
-        </div>
+        <app-search-box></app-search-box>
+        <app-search-filter-box></app-search-filter-box>
       </div>
     </div>
   </div>
