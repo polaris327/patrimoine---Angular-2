@@ -1,0 +1,17 @@
+<h1 class="notice-txt color-red">Notices</h1>
+<p class="fontsize-16 custom-grey">2 résultat(s)</p>
+<span class="fontsize-16 custom-grey">Filtré par:</span> <span class="search-tag">Paris Habitat <span style="color: #967a0b;">x</span></span>
+<div class="fliter-box">
+  <select class="filter-sel float-left">
+    <option>Résultats par page : 10</option>
+    <option>Résultats par page : 20</option>
+    <option>Résultats par page : 30</option>
+  </select>
+  <select class="filter-sel float-right selectpicker" [(ngModel)]="_publicService.selectedViewMode" (ngModelChange)="onClick($event)" [ngModelOptions]="{standalone: true}">
+    <option data-icon="glyphicon glyphicon-menu-hamburgur" *ngFor="let n of _publicService.viewModes" [value]="n">{{n}}</option>
+  </select>
+  <select class="filter-sel float-right margin-right-5">
+    <option>Trié par : Pertinence</option>
+    <option>Trié par : Pertinence 2</option>
+  </select>
+</div>

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 
-//Layouts
+ //Layouts
 import { LayoutComponent } from './layout/layout.component';
 
 export const routes: Routes = [

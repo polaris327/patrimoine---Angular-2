@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PublicService } from '../../shared/services/public/public.service';
 
 @Component({
   selector: 'app-notice-content',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NoticeContentComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private _publicService: PublicService
+  ) { }
 
   ngOnInit() {
   }

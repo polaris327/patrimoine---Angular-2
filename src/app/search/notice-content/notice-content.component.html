@@ -3,7 +3,8 @@
     <div class="row">
       <div class="col-sm-8 content-main">
         <app-notices-box></app-notices-box>
-        <app-item-box></app-item-box>
+        <app-item-box *ngIf="_publicService.selectedViewMode == 'Notices Courtes'"></app-item-box>
+        <app-result-map-view *ngIf="_publicService.selectedViewMode == 'Carte'"></app-result-map-view>
         <p class="footer-txt fontsize-16 custom-grey">1-2/2result(s)</p>
       </div>
       <div class="col-sm-3 sidebar-box">

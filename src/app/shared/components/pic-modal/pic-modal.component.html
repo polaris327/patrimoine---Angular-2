@@ -1,0 +1,27 @@
+<div bsModal #myModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" (click)="myModal.hide()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title">Description</h4>
+      </div>
+      <div class="modal-body">
+        <carousel>
+          <slide>
+            <img src="../../../assets/img/PH-city1.jpg" alt="First slide">
+          </slide>
+          <slide>
+            <img src="../../../assets/img/PH-city2.jpg" alt="Second slide">
+          </slide>
+        </carousel>
+      </div>
+      <div class="modal-footer">
+        <h6>{{items}}</h6>
+      </div>
+    </div>
+  </div>
+</div>
+

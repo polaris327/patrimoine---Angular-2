@@ -1,0 +1,26 @@
+.search-tag {
+  border: 1px solid #ddd;
+  padding: 5px;
+}
+.fliter-box {
+  border-top: 1px dotted #ddd;
+  border-bottom: 1px dotted #ddd;
+  padding: 16px 0;
+  margin-top: 10px;
+  height: 62px;
+}
+.fliter-box:before {
+  content: '';
+}
+.filter-sel {
+  border-color: #ddd;
+  padding: 5px;
+  width: 224px;
+}
+.filter-box:after {
+  content: '';
+  clear: both;
+}
+.notice-txt {
+  margin-top: 0;
+}

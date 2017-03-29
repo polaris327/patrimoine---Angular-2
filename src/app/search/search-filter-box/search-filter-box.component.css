@@ -1,0 +1,13 @@
+.bottom-search-option {
+  background-color: white;
+  margin-top: 34px;
+  padding: 20px;
+}
+.sidebar-select-box {
+  padding-bottom: 12px;
+  border-bottom: 1px solid #ddd;
+}
+.sidebar-select {
+  width: 322px;
+  height: 24px;
+}

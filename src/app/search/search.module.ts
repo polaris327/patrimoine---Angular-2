@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-
+import { FormsModule} from '@angular/forms';
 import { SearchRoutingModule } from './search.routing';
 import { SharedComponentModule } from '../shared/components/shared-component.module';
 
@@ -17,6 +17,7 @@ import { NoticesBoxComponent } from './notices-box/notices-box.component';
     NoticesBoxComponent
   ],
   imports: [
+    FormsModule,
     CommonModule,
     SearchRoutingModule,
     SharedComponentModule

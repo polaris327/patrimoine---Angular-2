@@ -10,11 +10,15 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { CustomService } from './shared/services/custom.service';
 
+import { Config }         from './shared/config/config';
+
 // Imports for loading & configuring the in-memory web api
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './models/in-memory-data.service';
 
 import { PublicService } from './shared/services/public/public.service';
+import { InitLoadCustomService } from './shared/services/init-load-custom.service';
+import { GeocodingService } from './shared/components/googlemap/geocoding.service';
 
 @NgModule({
   declarations: [
@@ -27,12 +31,15 @@ import { PublicService } from './shared/services/public/public.service';
     BrowserModule,
     FormsModule,
     HttpModule,
-    InMemoryWebApiModule.forRoot(InMemoryDataService),
+    //InMemoryWebApiModule.forRoot(InMemoryDataService),
     AppRoutingModule
   ],
   providers: [
     CustomService,
-    PublicService
+    PublicService,
+    InitLoadCustomService,
+    GeocodingService,
+    Config
   ],
   bootstrap: [AppComponent]
 })
