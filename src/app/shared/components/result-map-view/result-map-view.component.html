@@ -1,0 +1,10 @@
+<ng2-map class="map-view" zoom="10" center="21bis rue claude bernard PARIS" disableDoubleClickZoom="true">
+  <marker *ngFor="let pos of _initLoadCustomService.mapAddressData;let i = index;"
+  (click)="showInfoWindow($event, i)"
+  (dblclick)="_initLoadCustomService.gotoDetails(i)"
+  [position]="pos"></marker>
+  <info-window id="iw">
+    Address: [[address]] <br/>
+    lat: [[lat]], lng: [[lng]]
+  </info-window>
+</ng2-map>

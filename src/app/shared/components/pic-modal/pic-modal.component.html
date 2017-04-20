@@ -6,17 +6,19 @@
         <button type="button" class="close" (click)="myModal.hide()" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-        <h4 class="modal-title">Description</h4>
+        <h4 class="modal-title">Description - Click and scroll on image to start zooming</h4>
       </div>
       <div class="modal-body">
-        <carousel>
-          <slide>
-            <img src="../../../assets/img/PH-city1.jpg" alt="First slide">
-          </slide>
-          <slide>
-            <img src="../../../assets/img/PH-city2.jpg" alt="Second slide">
-          </slide>
-        </carousel>
+        <img [imageZoom]="_initLoadCustomService.detailImgURL[id][0]" [src]="_initLoadCustomService.detailImgURL[id][0]" lensStyle="LENS" lensWidth="700" lensHeight="700" windowPosition="10" clickToZoom="false">
+        <!--<img mouseWheel [style.width]="imgWidth + '%'" [src]="_initLoadCustomService.detailImgURL[id]" (mouseWheelUp)="mouseWheelUpFunc()" (mouseWheelDown)="mouseWheelDownFunc()"/>-->
+        <!--<carousel>-->
+          <!--<slide>-->
+            <!--<img src="../../../assets/img/PH-city1.jpg" alt="First slide">-->
+          <!--</slide>-->
+          <!--<slide>-->
+            <!--<img src="../../../assets/img/PH-city2.jpg" alt="Second slide">-->
+          <!--</slide>-->
+        <!--</carousel>-->
       </div>
       <div class="modal-footer">
         <h6>{{items}}</h6>

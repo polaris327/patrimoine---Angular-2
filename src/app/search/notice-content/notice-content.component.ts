@@ -14,5 +14,4 @@ export class NoticeContentComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }

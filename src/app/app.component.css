@@ -1,0 +1,15 @@
+.open-shopping-cart {
+  font-size: 2rem;
+  position: absolute;
+  right: 15px;
+}
+
+.nav-bar {
+  position: relative;
+  height: 40px;
+}
+
+.back-button {
+  position: absolute;
+  left: 15px;
+}

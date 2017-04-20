@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { ModalDirective } from 'ng2-bootstrap';
 import { PublicService } from '../../services/public/public.service';
+import { InitLoadCustomService } from '../../services/init-load-custom.service';
 
 @Component({
   selector: 'app-pic-modal',
@@ -11,7 +12,8 @@ import { PublicService } from '../../services/public/public.service';
 export class PicModalComponent implements OnInit {
 
   constructor(
-    private _publicService: PublicService
+    private _publicService: PublicService,
+    private _initLoadCustomService: InitLoadCustomService
   ) {
     this._publicService.getModalOpenObserver.subscribe(data=> {
       if (data == true) {
@@ -29,6 +31,8 @@ export class PicModalComponent implements OnInit {
 
   @Input()
     items:any = [];
+  @Input()
+    id:number = 0;
 
   @ViewChild('myModal') public myModal:ModalDirective;
 
@@ -38,5 +42,19 @@ export class PicModalComponent implements OnInit {
 
   public hideChildModal():void {
     this.myModal.hide();
+  }
+
+  //mouse wheel
+  mouseWheelDir: string = '';
+  imgWidth: number = 100;
+
+  mouseWheelUpFunc() {
+    console.log('mouse wheel up');
+    this.imgWidth = this.imgWidth+10;
+  }
+
+  mouseWheelDownFunc() {
+    console.log('mouse wheel down');
+    this.imgWidth = this.imgWidth-10;
   }
 }

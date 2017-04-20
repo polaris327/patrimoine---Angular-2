@@ -1,0 +1,72 @@
+<form (ngSubmit)="onSubmit(cartForm.value)" #cartForm="ngForm">
+  <div class="form-group">
+    <label class="col-xs-4 control-label" for="firstname" >Nom : </label>
+    <div class="col-xs-8">
+      <input type="text" style="width: 300px" class="form-control" id="firstname"
+             required
+             [(ngModel)]="myData.firstname"  name="firstname"
+             #firstname="ngModel"
+        >
+      <div [hidden]="firstname.valid || firstname.pristine" class="alert alert-danger">
+        Firstname is required !
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-xs-4 control-label" for="lastname" >Prénom : </label>
+    <div class="col-xs-8">
+      <input type="text" style="width: 300px" class="form-control" id="lastname"
+             required
+             [(ngModel)]="myData.lastname"  name="lastname"
+             #lastname="ngModel"
+        >
+      <div [hidden]="lastname.valid || lastname.pristine" class="alert alert-danger">
+        Lastname is required !
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-xs-4 control-label" for="email" >Email : </label>
+    <div class="col-xs-8">
+      <input type="email" style="width: 300px" class="form-control" id="email"
+             required
+             [(ngModel)]="myData.email"  name="email"
+             #email="ngModel"
+        >
+      <div [hidden]="email.valid || email.pristine" class="alert">
+        Email is required !
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-xs-4 control-label" for="message" >Message : </label>
+    <div class="col-xs-8">
+      <input type="text" style="width: 300px" class="form-control" id="message"
+             required
+             [(ngModel)]="myData.message"  name="message"
+             #message="ngModel"
+        >
+      <div [hidden]="lastname.valid || lastname.pristine" class="alert alert-danger">
+        Message is required !
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-xs-12">
+      <button type="submit" class="btn btn-default">Submit</button>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-xs-4 control-label" >Submitted Data : </label>
+    <div class="col-xs-8">
+      <div [hidden]="!submitted">
+        <span>from something.com</span>
+        <textarea style="width: 300px" class="form-control" rows="6">{{data}}</textarea>
+      </div>
+      <div [hidden]="submitted">
+        <span>Edit your Data then click Submit to get Data from : something.com</span>
+      </div>
+    </div>
+  </div>
+</form>

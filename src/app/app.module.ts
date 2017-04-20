@@ -18,6 +18,7 @@ import { InMemoryDataService }  from './models/in-memory-data.service';
 
 import { PublicService } from './shared/services/public/public.service';
 import { InitLoadCustomService } from './shared/services/init-load-custom.service';
+import { ShoppingCartService } from './shared/services/shopping-cart.service';
 import { GeocodingService } from './shared/components/googlemap/geocoding.service';
 
 @NgModule({
@@ -38,6 +39,7 @@ import { GeocodingService } from './shared/components/googlemap/geocoding.servic
     CustomService,
     PublicService,
     InitLoadCustomService,
+    ShoppingCartService,
     GeocodingService,
     Config
   ],

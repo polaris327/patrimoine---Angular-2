@@ -1,6 +1,8 @@
 export class Config {
     static id = "config";
-    api = "https://poc.plugandwork.fr/api/d1/webpoints/";
+    apiBaseURL = "https://paw.parishabitat.fr/api/d1/webpoints/";
+    apiWCWPURL = "?wc=58c6595ee96bf07feb34f48a&wp=58c65943e96bf07feb34f489";
+    apiExact = "&exact=true";
     constructor() {}
     //name = "Name";
     //appName = "ApplicationName";
@@ -11,4 +13,18 @@ export class Config {
     //realtors: Array<{ _id : string, name : string }>
     //realtorObject: any[];
     //facebook_appId = '300159316999844';
+}
+
+export enum SearchMode {
+  ALL = 0,
+  RESULTS_PER_PAGE_10,
+  RESULTS_PER_PAGE_20,
+  RESULTS_PER_PAGE_30,
+  BY_TITLE,
+  BY_RANKING,
+  BY_OPERATION,
+  BY_DATEOFRECEIPT,
+  BY_ARCHITECTE,
+  BY_ARIANEBOX,
+  BY_PHOTOGRAPHER
 }

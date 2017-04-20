@@ -16,21 +16,21 @@
     <!--</div>-->
   <!--</div>-->
 <!--</div>-->
-
 <div *ngFor="let item of _initLoadCustomService.spaceData;let i = index;">
   <div class="list-item clearfix">
-    <div class="item-img">
-      <a (click)="_initLoadCustomService.gotoDetails(i)"><img [src]="_initLoadCustomService.thumbImgURL[i]" alt=""></a>
+    <div class="item-img" *ngIf="_initLoadCustomService.thumbImgURL[i]">
+      <a (click)="_initLoadCustomService.gotoDetails(i)"><img [src]="_initLoadCustomService.thumbImgURL[i][0]" alt=""></a>
     </div>
     <div class="inner">
       <div class="item-title">
         <a (click)="_initLoadCustomService.gotoDetails(i)"  class="color-red">{{item.title}}</a>
       </div>
       <div class="fonttype1">
-        <p align="left">Adresse<br/>Arrondissement<br/>classement</p>
+        <p align="left">Adresse<br/>Arrondissement</p>
       </div>
-      <div class="fonttype1 padding-left-48 custom-grey">
-        <p align="left">{{item.superfields.adresse}}<br/>{{item.superfields.arrondissement}}<br/><span class="color-red">{{item.superfields.classement}}</span></p>
+      <div class="fonttype1 padding-left-48 custom-grey" *ngIf="_initLoadCustomService.docData[i]">
+        <!--<p align="left">{{item.superfields.adresse}}<br/>{{item.superfields.arrondissement}}</p>-->
+        <p align="left">{{_initLoadCustomService.docData[i]['superfields']['adresse']}}<br/>{{_initLoadCustomService.docData[i]['superfields']['arrondissement']}}</p>
       </div>
     </div>
   </div>

@@ -1,50 +1,91 @@
 <div class="bottom-search-option">
   <h2 class="color-sidebar-txt">Classement</h2>
   <div class="sidebar-select-box">
-    <select class="sidebar-select">
-      <option></option>
-      <option></option>
-      <option></option>
-    </select>
+    <input  class="sidebar-select"
+            ngui-auto-complete
+            [(ngModel)]="selectedRanking"
+            [source]="observableSource1.bind(this)"
+            [list-formatter]="listFormatter1"
+            [value-formatter]="valueFormatter1"
+            auto-complete-placeholder="search here..."
+            no-match-found-text="Aucun resultat"
+            loading-text="Chargement en cours..."
+            (valueChanged)="onSelected($event, 1)" [ngModelOptions]="{standalone: true}"
+    />
   </div>
-  <h2 class="color-sidebar-txt">Operation</h2>
+  <h2 class="color-sidebar-txt">Opération</h2>
   <div class="sidebar-select-box">
-    <select class="sidebar-select">
-      <option></option>
-      <option></option>
-      <option></option>
-    </select>
+    <input  class="sidebar-select"
+            ngui-auto-complete
+            [(ngModel)]="selectedOperation"
+            [source]="observableSource2.bind(this)"
+            [list-formatter]="listFormatter2"
+            [value-formatter]="valueFormatter2"
+            auto-complete-placeholder="search here..."
+            no-match-found-text="Aucun resultat"
+            loading-text="Chargement en cours..."
+            (valueChanged)="onSelected($event, 2)" [ngModelOptions]="{standalone: true}"
+      />
   </div>
-  <h2 class="color-sidebar-txt">Date de reception</h2>
+  <h2 class="color-sidebar-txt">Date de réception</h2>
   <div class="sidebar-select-box">
-    <select class="sidebar-select">
-      <option></option>
-      <option></option>
-      <option></option>
-    </select>
+    <input  class="sidebar-select"
+            ngui-auto-complete
+            [(ngModel)]="selectedDOR"
+            [source]="observableSource3.bind(this)"
+            [list-formatter]="listFormatter3"
+            [value-formatter]="valueFormatter3"
+            auto-complete-placeholder="search here..."
+            no-match-found-text="Aucun resultat"
+            loading-text="Chargement en cours..."
+            (valueChanged)="onSelected($event, 3)" [ngModelOptions]="{standalone: true}"
+      />
   </div>
   <h2 class="color-sidebar-txt">Architecte</h2>
   <div class="sidebar-select-box">
-    <select class="sidebar-select">
-      <option></option>
-      <option></option>
-      <option></option>
-    </select>
+    <input  class="sidebar-select"
+            ngui-auto-complete
+            [(ngModel)]="selectedArchitect"
+            [source]="observableSource4.bind(this)"
+            [list-formatter]="listFormatter4"
+            [value-formatter]="valueFormatter4"
+            auto-complete-placeholder="search here..."
+            no-match-found-text="Aucun resultat"
+            loading-text="Chargement en cours..."
+            (valueChanged)="onSelected($event, 4)" [ngModelOptions]="{standalone: true}"
+      />
   </div>
-  <h2 class="color-sidebar-txt">Boite Ariane</h2>
+  <h2 class="color-sidebar-txt">Boîte Ariane</h2>
   <div class="sidebar-select-box">
-    <select class="sidebar-select">
-      <option></option>
-      <option></option>
-      <option></option>
-    </select>
+    <input  class="sidebar-select"
+            ngui-auto-complete
+            [(ngModel)]="selectedBox"
+            [source]="observableSource5.bind(this)"
+            [list-formatter]="listFormatter5"
+            [value-formatter]="valueFormatter5"
+            auto-complete-placeholder="search here..."
+            no-match-found-text="Aucun resultat"
+            loading-text="Chargement en cours..."
+            (valueChanged)="onSelected($event, 5)" [ngModelOptions]="{standalone: true}"
+      />
   </div>
   <h2 class="color-sidebar-txt">Photographe</h2>
   <div class="sidebar-select-box">
-    <select class="sidebar-select">
-      <option></option>
-      <option></option>
-      <option></option>
-    </select>
+    <input  class="sidebar-select"
+            ngui-auto-complete
+            [(ngModel)]="selectedPhotographer"
+            [source]="observableSource6.bind(this)"
+            [list-formatter]="listFormatter6"
+            [value-formatter]="valueFormatter6"
+            auto-complete-placeholder="search here..."
+            no-match-found-text="Aucun resultat"
+            loading-text="Chargement en cours..."
+            (valueChanged)="onSelected($event, 6)" [ngModelOptions]="{standalone: true}"
+      />
+    <!--<select class="sidebar-select">-->
+      <!--<option></option>-->
+      <!--<option></option>-->
+      <!--<option></option>-->
+    <!--</select>-->
   </div>
 </div>

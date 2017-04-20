@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { ItemBoxComponent } from './item-box/item-box.component';
 import { PicModalComponent } from './pic-modal/pic-modal.component';
+import { WarningModalComponent } from './warning-modal/warning-modal.component';
 import { GooglemapComponent } from './googlemap/googlemap.component';
 
 import { ModalModule } from 'ng2-bootstrap/modal';
@@ -13,6 +14,14 @@ import { AgmCoreModule } from 'angular2-google-maps/core';
 import { Ng2MapModule } from 'ng2-map';
 import { DetailMapViewComponent } from './detail-map-view/detail-map-view.component';
 import { ResultMapViewComponent } from './result-map-view/result-map-view.component';
+import {ImageZoomModule} from 'angular2-image-zoom';
+import { MousewheelDirective } from '../directive/mousewheel.directive';
+import { ImageViewerComponent } from './image-viewer/image-viewer.component';
+import { CartBtnComponent } from './cart-btn/cart-btn.component';
+import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
+import { ValidateCartComponent } from './validate-cart/validate-cart.component';
+import { ValidateFormComponent } from './validate-form/validate-form.component';
+import { FormsModule }   from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +29,14 @@ import { ResultMapViewComponent } from './result-map-view/result-map-view.compon
     PicModalComponent,
     GooglemapComponent,
     DetailMapViewComponent,
-    ResultMapViewComponent
+    ResultMapViewComponent,
+    WarningModalComponent,
+    MousewheelDirective,
+    ImageViewerComponent,
+    CartBtnComponent,
+    ShoppingCartComponent,
+    ValidateCartComponent,
+    ValidateFormComponent
   ],
   imports: [
     CommonModule,
@@ -30,15 +46,21 @@ import { ResultMapViewComponent } from './result-map-view/result-map-view.compon
     //  apiKey: 'YOUR_KEY'
     //})
     AgmCoreModule.forRoot(),
-    Ng2MapModule.forRoot({apiUrl: 'https://maps.google.com/maps/api/js?key=AIzaSyDCLogJN6E_s1uNso1FDiB90qGFHVOjd9w'})
+    Ng2MapModule.forRoot({apiUrl: 'https://maps.google.com/maps/api/js?key=AIzaSyDCLogJN6E_s1uNso1FDiB90qGFHVOjd9w'}),
+    ImageZoomModule,
+    FormsModule
   ],
   providers: [],
   exports : [
     ItemBoxComponent,
     PicModalComponent,
+    WarningModalComponent,
     GooglemapComponent,
     DetailMapViewComponent,
-    ResultMapViewComponent
+    ResultMapViewComponent,
+    ImageViewerComponent,
+    CartBtnComponent,
+    ShoppingCartComponent
   ]
 })
 export class SharedComponentModule { }

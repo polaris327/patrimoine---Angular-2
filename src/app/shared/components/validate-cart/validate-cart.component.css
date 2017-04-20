@@ -1,0 +1,31 @@
+/*Form Submit*/
+#formModal form {
+  width: 80%;
+  background-color: #eee;
+  text-align: left;
+  padding: 30px;
+  padding-right: 50px;
+  border-radius: 7px;
+}
+#formModal form h1 {
+  color: black;
+  text-align: left;
+  font-size: 26px;
+}
+#formModal form .form-box {
+  width: 100%;
+  margin-bottom: 10px;
+  height: 40px;
+  border: 1px solid;
+  padding-left: 10px;
+  border-radius: 5px;
+}
+#formModal form .btn-submit {
+  background-color: #4DC6D1;
+  color: white;
+  padding: 25px 40px;
+  font-size: 22px;
+  border-radius: 5px;
+  border: 0;
+  margin-top: 27px;
+}

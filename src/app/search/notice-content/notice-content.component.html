@@ -5,12 +5,13 @@
         <app-notices-box></app-notices-box>
         <app-item-box *ngIf="_publicService.selectedViewMode == 'Notices Courtes'"></app-item-box>
         <app-result-map-view *ngIf="_publicService.selectedViewMode == 'Carte'"></app-result-map-view>
-        <p class="footer-txt fontsize-16 custom-grey">1-2/2result(s)</p>
+        <p class="footer-txt fontsize-16 custom-grey">1-2/2résultat(s)</p>
       </div>
       <div class="col-sm-3 sidebar-box">
         <app-search-box></app-search-box>
         <app-search-filter-box></app-search-filter-box>
       </div>
     </div>
+    <app-warning-modal></app-warning-modal>
   </div>
 </section>

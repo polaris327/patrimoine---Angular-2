@@ -1,0 +1,8 @@
+<ng2-map zoom="10" [center]="items">
+  <marker (click)="showInfoWindow($event)"
+          [position]="items"></marker>
+  <info-window id="iw">
+    Address: [[address]] <br/>
+    lat: [[lat]], lng: [[lng]]
+  </info-window>
+</ng2-map>

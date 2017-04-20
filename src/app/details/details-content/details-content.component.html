@@ -1,9 +1,9 @@
 <section class="content-bg">
-  <div class="notice-container" *ngIf="_initLoadCustomService.spaceData[id] && length > 0">
+  <div class="notice-container" *ngIf="_initLoadCustomService.spaceData[idx] && _initLoadCustomService.docData[idx] && length > 0">
     <div class="row">
       <div class="col-sm-4 details-left-panel">
         <div class="details-img">
-          <a (click)="onOpenModal()"><img [src]="_initLoadCustomService.detailImgURL[id]" alt=""></a>
+          <a (click)="onOpenModal()"><img [src]="_initLoadCustomService.detailImgURL[idx][0]" alt=""></a>
         </div>
         <div class="social-btns">
           <a [routerLink]="''"><img src="../../../assets/img/tw.png" alt=""></a>
@@ -15,21 +15,23 @@
           <!--<a [routerLink]="mailIT('mailto:webguru.p327@yandex.com')"><img src="../../../assets/img/email.png" alt=""></a>-->
         </div>
         <div class="map-box">
-          <!--<app-googlemap [items]="_initLoadCustomService.spaceData[id]['superfields']['adresse']"></app-googlemap>-->
-          <app-detail-map-view [items]="_initLoadCustomService.spaceData[id]['superfields']['adresse']"></app-detail-map-view>
+          <!--<app-googlemap [items]="_initLoadCustomService.spaceData[idx]['superfields']['adresse']"></app-googlemap>-->
+          <app-detail-map-view [items]="_initLoadCustomService.mapAddressData[idx]"></app-detail-map-view>
         </div>
       </div>
       <div class="col-sm-8 details-right-panel">
         <a (click)="goBack()" class="backtohome-btn color-red">< retour à l’accueil</a>
-        <h1 class="color-red">{{_initLoadCustomService.spaceData[id].title}}</h1>
+        <h1 class="color-red">{{_initLoadCustomService.spaceData[idx].title}}</h1>
+        <app-cart-btn [product]="_initLoadCustomService.docData[idx]['id']"></app-cart-btn>
         <div class="fonttype1">
-          <p align="left">Cotation<br/>Operation<br/>Adresse<br/>Arrondissement<br/>Date de reception<br/>HP<br/>Architecte<br/>Boite Ariane<br/>Nommage<br/>Dimensions<br/>Photographe<br/><br/>Permalien</p>
+          <p align="left">Fonction<br/>Opération<br/>Adresse<br/>Arrondissement<br/>Date photo<br/>Date de réception<br/>HP<br/>Architecte<br/>Service<br/>Boîte ariane</p>
         </div>
         <div class="fonttype1 padding-left-107 custom-grey">
-          <p align="left">{{_initLoadCustomService.spaceData[id]['superfields']['cotation']}}<br/>{{_initLoadCustomService.spaceData[id]['superfields']['opération']}}<br/>{{_initLoadCustomService.spaceData[id]['superfields']['adresse']}}<br/>{{_initLoadCustomService.spaceData[id]['superfields']['arrondissement']}}<br/>{{_initLoadCustomService.spaceData[id]['superfields']['date de récéption']}}<br/>{{_initLoadCustomService.spaceData[id]['superfields']['HP']}}<br/>{{_initLoadCustomService.spaceData[id]['superfields']['architecte']}}<br/>{{_initLoadCustomService.spaceData[id]['superfields']['boîte ariane']}}<br/>{{_initLoadCustomService.spaceData[id]['superfields']['nommage']}}<br/>{{_initLoadCustomService.spaceData[id]['superfields']['dimensions']}}<br/>{{_initLoadCustomService.spaceData[id]['superfields']['photographe']}}<br/><br/>{{_initLoadCustomService.spaceData[id]['superfields']['permalian']}}</p>
+          <p align="left">{{_initLoadCustomService.spaceData[idx]['superfields']['fonction']}}<br/>{{_initLoadCustomService.spaceData[idx]['superfields']['opération']}}<br/>{{_initLoadCustomService.spaceData[idx]['superfields']['adresse']}}<br/>{{_initLoadCustomService.spaceData[idx]['superfields']['arrondissement']}}<br/>{{_initLoadCustomService.spaceData[idx]['superfields']['date photo']}}<br/>{{_initLoadCustomService.spaceData[idx]['superfields']['date de réception']}}<br/>{{_initLoadCustomService.spaceData[idx]['superfields']['hp']}}<br/>{{_initLoadCustomService.spaceData[idx]['superfields']['architecte']}}<br/>{{_initLoadCustomService.spaceData[idx]['superfields']['service']}}<br/>{{_initLoadCustomService.spaceData[idx]['superfields']['boîte ariane']}}</p>
         </div>
       </div>
     </div>
-    <app-pic-modal [items]="_initLoadCustomService.spaceData[id]['superfields']['opération']"></app-pic-modal>
+    <app-pic-modal *ngIf="_initLoadCustomService.detailImgURL[idx][0] != '../../../assets/img/no-thumb.png'" [items]="_initLoadCustomService.spaceData[idx]['superfields']['opération']" [id]="idx"></app-pic-modal>
+    <!--<app-image-viewer [items]="_initLoadCustomService.spaceData[idx]['superfields']['opération']" [id]="idx"></app-image-viewer>-->
   </div>
 </section>

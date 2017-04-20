@@ -10,7 +10,7 @@ import { InitLoadCustomService } from '../../shared/services/init-load-custom.se
   styleUrls: ['./details-content.component.css']
 })
 export class DetailsContentComponent implements OnInit {
-  public id:number = -1;
+  public idx:number = -1;
   public itemData:any = [];
 
   public length : number = 1; //for lazy loading, will be deprecated soon
@@ -23,9 +23,15 @@ export class DetailsContentComponent implements OnInit {
   ) {
     this.route.queryParams.subscribe(
         params => {
-          this.id = params['id'];
+          this.idx = params['id'];
       }
     );
+    console.log("Detail page id is ........ " + this.idx);
+    console.log("SPACEDATA Length .......... " + this._initLoadCustomService.spaceData.length);
+    console.log("DOCDATA Length .......... " + this._initLoadCustomService.docData.length);
+    console.log("MAPDATA Length .......... " + this._initLoadCustomService.mapAddressData.length);
+    console.log("thumbImgURL Length .......... " + this._initLoadCustomService.thumbImgURL.length);
+    console.log("detailImgURL Length .......... " + this._initLoadCustomService.detailImgURL.length);
   }
 
   ngOnInit() {
@@ -50,6 +56,9 @@ export class DetailsContentComponent implements OnInit {
   }
 
   goBack(): void {
+    if ( this._initLoadCustomService.spaceData.length != this._initLoadCustomService.docData.length )//after all items have fully loaded
+      return;
+
     this.location.back();
   }
 

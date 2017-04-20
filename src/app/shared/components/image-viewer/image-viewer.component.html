@@ -1,0 +1,23 @@
+<div bsModal #myModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" (click)="myModal.hide()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title">Description - Click and scroll on image to start zooming</h4>
+      </div>
+      <div #modalBody class="modal-body">
+        <!--<img [imageZoom]="_initLoadCustomService.detailImgURL[id]" [src]="_initLoadCustomService.detailImgURL[id]" lensStyle="LENS" lensWidth="700" lensHeight="700" windowPosition="10" clickToZoom="false">-->
+        <canvas mouseWheel #canvas height="650" width="868" data-girar="0" style="border:1px solid #000;z-index:555555;cursor:grab;" (mouseWheelUp)="mouseWheelUpFunc()" (mouseWheelDown)="mouseWheelDownFunc()">sdsd</canvas>
+        <img #image [src]="_initLoadCustomService.detailImgURL[id]" style="display: none"/>
+      </div>
+      <div class="modal-footer">
+        <h6>{{items}}</h6>
+        <button type="button" (click)="clickon()">BTN</button>
+      </div>
+    </div>
+  </div>
+</div>
+

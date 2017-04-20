@@ -1,0 +1,33 @@
+<div bsModal #myModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" (click)="hideChildModal()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title">AVERTISSEMENT</h4>
+      </div>
+      <div class="modal-body">
+        <p>
+          Les images photographiques représentées sur le site peuvent être grevées d’un droit de propriété intellectuelle ou de tout autre droit appartenant à un tiers.
+
+          Leur reproduction n’est autorisée que dans le cadre d'une utilisation privative, ou pour l'illustration d'un travail pédagogique ou de recherche non publié ni commercialisé sous aucune forme que ce soit (par exemple, cours, exposé, mémoire, thèse).
+
+          Leur reproduction est également autorisée dans le cadre de l’illustration de sites internet personnels à vocation non commerciale. Elle est en revanche strictement interdite sur les réseaux sociaux.
+
+          La mention du crédit photographique est obligatoire sur chacune des reproductions ou représentations des images photographiques. Le crédit photographique doit être apposé au regard de l’image reproduite.
+
+          Dans tous les cas où des œuvres de l’esprit appartiennent au domaine public, les mentions du titre de l’œuvre, du nom de son auteur et de son lieu de conservation/dépôt devront être respectées et associées à l’œuvre.
+
+          Toute reproduction, représentation, utilisation, mise à disposition ou modification, par quelque procédé que ce soit, de tout ou partie du site ou de tout ou partie des différents documents contenant des droits de propriété intellectuelle, pour tout autre motif que ceux précités, sans avoir obtenu l’autorisation préalable de Paris Habitat et des éventuels auteurs ou leurs ayants-droit, est strictement interdite et constitue un délit de contrefaçon.
+
+          Pour toute demande d’autorisation de reproduction, vous devez prendre contact avec xxx@parishabitat.fr
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="hideChildModal()" aria-label="Close">Accepter</button>
+      </div>
+    </div>
+  </div>
+</div>
