@@ -2,3 +2,6 @@ div.modal-body img {
   width: 100%;
   display: inline-block;
 }
+div.modal-body:hover {
+  cursor: pointer;
+}

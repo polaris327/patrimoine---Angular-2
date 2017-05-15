@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ShoppingCartService } from '../shared/services/shopping-cart.service';
 
 @Component({
   selector: 'app-header',
@@ -6,8 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  public shoppingCartItems$: any[];
 
-  constructor() { }
+  constructor(
+    private _shoppingCartService: ShoppingCartService
+  ) {
+    this.shoppingCartItems$ = this
+      ._shoppingCartService
+      .get();
+  }
 
   ngOnInit() {
   }

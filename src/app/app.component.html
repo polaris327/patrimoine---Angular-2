@@ -1,8 +1,5 @@
-<div class="nav-bar">
-  <a *ngIf="location.path() !== '/'" routerLink="/" class="back-button">Home</a>
+<!--<div class="nav-bar">-->
+  <!--<a *ngIf="location.path() !== '/'" routerLink="/" class="back-button">Home</a>-->
   <!--<a *ngIf="location.path() !== '/'" (click)="goBack()" class="back-button">Back</a>-->
-  <div class="open-shopping-cart" routerLink="/cart">
-    <i data-icon="glyphicon glyphicon-ok">Cart {{(shoppingCartItems$).length}}</i>
-  </div>
-</div>
+<!--</div>-->
 <router-outlet></router-outlet>

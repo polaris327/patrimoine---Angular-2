@@ -3,6 +3,10 @@ export class Config {
     apiBaseURL = "https://paw.parishabitat.fr/api/d1/webpoints/";
     apiWCWPURL = "?wc=58c6595ee96bf07feb34f48a&wp=58c65943e96bf07feb34f489";
     apiExact = "&exact=true";
+    apiPostURL = "https://paw.parishabitat.fr/api/d1/docs";
+    auth_token = "8XDsmQszb8Klrp5PYv3eXNbdkdlwG4N5";
+    uuid = "udWWxkH4mXfOEy36oweSNCF686NxQP4e";
+
     constructor() {}
     //name = "Name";
     //appName = "ApplicationName";

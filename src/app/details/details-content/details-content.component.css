@@ -19,6 +19,9 @@ div.row {
 div.details-img img {
   width: 100%;
 }
+div.details-img img:hover {
+  cursor: pointer;
+}
 div.social-btns {
   padding: 47px;
 }

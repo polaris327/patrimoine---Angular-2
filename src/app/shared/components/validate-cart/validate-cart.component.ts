@@ -28,6 +28,9 @@ export class ValidateCartComponent implements OnInit {
     this._publicService.removeModalOpenObserver();
   }
 
+  @Input()
+    products:any[];
+
   @ViewChild('myModal') public myModal:ModalDirective;
 
   public showChildModal():void {

@@ -22,7 +22,6 @@
     "@ngui/auto-complete": "^0.13.1",
     "@types/google-maps": "^3.2.0",
     "angular-in-memory-web-api": "^0.2.4",
-    "angular2-google-maps": "^0.17.0",
     "angular2-image-zoom": "^1.2.1",
     "bootstrap": "^3.3.7",
     "core-js": "^2.4.1",
@@ -31,6 +30,7 @@
     "ng2-map": "^0.16.5",
     "ng2-tagsinput": "^0.1.4",
     "rxjs": "^5.1.0",
+    "sweetalert2": "^6.6.2",
     "zone.js": "^0.7.6"
   },
   "devDependencies": {

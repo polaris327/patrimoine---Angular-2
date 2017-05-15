@@ -13,6 +13,10 @@ div.item-img {
 }
 div.item-img img {
   width: 122px;
+  max-height: 100px;
+}
+div.item-img img:hover {
+  cursor: pointer;
 }
 div.inner {
   position: relative;

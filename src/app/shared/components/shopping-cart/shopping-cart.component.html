@@ -1,12 +1,20 @@
-<p style="font-size: 20px; font-weight: bold">You have {{products.length}} pictures in your cart</p>
-<div id="shopping-cart" *ngIf='products.length > 0'>
-
-  <ul>
-    <li *ngFor='let product of products;let i = index;'>
-      Picture ID: {{product}}<br/>
-      <button type="button" class="btn btn-primary" (click)="removeFromCart(i)">REMOVE</button>
-    <li>
-  </ul>
-  <button type="button" class="btn btn-primary" (click)="onValidate()">VALIDATE</button>
-  <app-validate-cart></app-validate-cart>
-</div>
+<section class="content-bg">
+  <div class="notice-container">
+    <div class="row">
+      <div class="col-sm-12 content-main">
+        <a routerLink='/' class="backtohome-btn color-red">< Retour</a>
+        <div class="title">
+          <p style="font-size: 30px; font-weight: bold" class="color-red">Mes favoris</p>
+          <p style="font-size: 20px; font-weight: bold" class="color-red">Vous avez {{products.length}} patrimoine<span *ngIf="products.length > 1">s</span> favori<span *ngIf="products.length > 1">s</span></p>
+        </div>
+        <div id="shopping-cart" *ngIf='products.length > 0'>
+          <div *ngFor='let product of products;let i = index;' class="list-item clearfix">
+            <app-cart-item [idInDocData]="product" [idInProducts]="i"></app-cart-item>
+          </div>
+          <p class="validate color-red">Demander les images pour ces patrimoines <button type="button" class="btn btn-primary" (click)="onValidate()">Demander les photos</button></p>
+          <app-validate-cart [products]="products"></app-validate-cart>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

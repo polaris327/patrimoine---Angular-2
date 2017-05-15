@@ -6,16 +6,27 @@
         <button type="button" class="close" (click)="myModal.hide()" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-        <h4 class="modal-title">Description - Click and scroll on image to start zooming</h4>
+        <h4 class="modal-title">{{items}}</h4>
+        <button type="button" class="btn btn-primary" (click)="onZoomIn($event)"><span class="glyphicon glyphicon-zoom-in"> </span> Agrandir</button>
+        <button type="button" class="btn btn-primary" (click)="onZoomOut($event)"><span class="glyphicon glyphicon-zoom-out"> </span> Réduire</button>
+        <button type="button" class="btn btn-primary" (click)="onRotateToLeft($event)"><span class="glyphicon glyphicon-menu-left"> </span> Tourner à gauche</button>
+        <button type="button" class="btn btn-primary" (click)="onRotateToRight($event)">Tourner à droite <span class="glyphicon glyphicon-menu-right"> </span></button>
+        <button type="button" class="btn btn-primary" (click)="onReset($event)"><span class="glyphicon glyphicon-refresh"> </span> Revenir à l'original</button>
       </div>
       <div #modalBody class="modal-body">
         <!--<img [imageZoom]="_initLoadCustomService.detailImgURL[id]" [src]="_initLoadCustomService.detailImgURL[id]" lensStyle="LENS" lensWidth="700" lensHeight="700" windowPosition="10" clickToZoom="false">-->
-        <canvas mouseWheel #canvas height="650" width="868" data-girar="0" style="border:1px solid #000;z-index:555555;cursor:grab;" (mouseWheelUp)="mouseWheelUpFunc()" (mouseWheelDown)="mouseWheelDownFunc()">sdsd</canvas>
-        <img #image [src]="_initLoadCustomService.detailImgURL[id]" style="display: none"/>
+        <canvas mouseWheel #canvas height="650" width="870" data-girar="0" style="border:1px solid #000;z-index:555555;cursor:grab;" (mouseWheelUp)="mouseWheelUpFunc()" (mouseWheelDown)="mouseWheelDownFunc()" (mousedown)='mousedown($event)' (mousemove)='mousemove($event)' (mouseup)='mouseup($event)'>sdsd</canvas>
+        <!--<img #image [src]="_initLoadCustomService.detailImgURL[id][0]" style="display: none"/>-->
+        <carousel [interval]="myInterval" [noWrap]="noWrapSlides" [(activeSlide)]="activeSlideIndex" (activeSlideChange)="onSlideChanged()">
+          <slide *ngFor="let slide of _initLoadCustomService.detailImgURL[this.id]; let index=index">
+            <img #image [src]="slide" style="display: none"/>
+            <!--<div class="carousel-caption">-->
+              <!--<h4>Slide {{index}}</h4>-->
+            <!--</div>-->
+          </slide>
+        </carousel>
       </div>
       <div class="modal-footer">
-        <h6>{{items}}</h6>
-        <button type="button" (click)="clickon()">BTN</button>
       </div>
     </div>
   </div>

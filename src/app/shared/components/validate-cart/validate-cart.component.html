@@ -6,7 +6,7 @@
         <button type="button" class="close" (click)="myModal.hide()" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-        <h4 class="modal-title">VALIDATE</h4>
+        <h4 class="modal-title">DEMANDE DE PHOTOS</h4>
       </div>
       <div class="modal-body">
         <!--<form action="http://xxx.com/thank-you" method="post">-->
@@ -16,7 +16,7 @@
           <!--<input class="form-box" id="company" name="company" placeholder="*Message" type="text">-->
           <!--<input class="btn-submit" type="submit" value="Submit">-->
         <!--</form>-->
-        <app-validate-form></app-validate-form>
+        <app-validate-form [products]="products"></app-validate-form>
       </div>
       <div class="modal-footer">
         <h6>{{items}}</h6>

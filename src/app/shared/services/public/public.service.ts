@@ -25,12 +25,12 @@ export class PublicService {
     {id: SearchMode.RESULTS_PER_PAGE_20, url: 'limit=20'},
     {id: SearchMode.RESULTS_PER_PAGE_30, url: 'limit=30'},
     {id: SearchMode.BY_TITLE, url: 'title='},
-    {id: SearchMode.BY_RANKING, url: 'superfields[fonction]='},
+    {id: SearchMode.BY_RANKING, url: 'superfields[cotation]='},
     {id: SearchMode.BY_OPERATION, url: 'superfields[opération]='},
     {id: SearchMode.BY_DATEOFRECEIPT, url: 'superfields[date de réception]='},
     {id: SearchMode.BY_ARCHITECTE, url: 'superfields[architecte]='},
     {id: SearchMode.BY_ARIANEBOX, url: 'superfields[boîte ariane]='},
-    {id: SearchMode.BY_PHOTOGRAPHER, url: 'superfields[date photo]='},
+    {id: SearchMode.BY_PHOTOGRAPHER, url: 'superfields[photographe]='},
   ];
 
   constructor(

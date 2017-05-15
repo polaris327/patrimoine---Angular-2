@@ -23,10 +23,8 @@ export class CustomService {
   private reqOptions: any;
   private spaceDataURL: string;
   private docDataURL: string;
-  //private itemData: Subject<any> = new ReplaySubject<any>(1);
   private spaceData: Subject<any> = new ReplaySubject<any>(1);
   private docData:any = [];
-//  private temp: Subject<any> = new ReplaySubject<any>(1);
 
   /* API for Spaces*/
   get spaceData$(): Observable<any> {
@@ -56,7 +54,6 @@ export class CustomService {
       .map(x => x.json())
       .subscribe(data => {
         this.spaceData.next(data);
-        console.log("THIS_URL............."+this.spaceDataURL);
       });
   }
 
@@ -68,23 +65,27 @@ export class CustomService {
 
   public  resetDocData(): void {
     this.docData = [];
-    this.docData.forEach(data => {
-      console.log('DATA>>>'+data);
-    });
-//    this.docData = new ReplaySubject<any>(1);
   }
 
-  n = 1;
   getDocData(space_id = null, index = 0) {
     this.docDataURL = this.config.apiBaseURL + this.config.apiWCWPURL + '&tagset_ids=' + space_id;
     this.http.get(this.docDataURL, this.reqOptions)
       .map(x => x.json())
       .subscribe(data => {
-        if (this.n > 18)
-          this.n = 1;
         console.log("asdfafs>>>>>>>>"+index);
         this.docData[index].next(data);
       });
+  }
+
+  /**
+   * POST
+   */
+  postForm(plainData): Observable<any> {
+    let jsonData = JSON.stringify(plainData, null, 2);
+    console.log("JSON DATA......", jsonData);
+    let url = this.config.apiPostURL + '?auth_token=' + this.config.auth_token + '&uuid=' + this.config.uuid;
+    return this.http.post(url, jsonData, this.reqOptions)
+      .map(x => x.json());
   }
 
   /**

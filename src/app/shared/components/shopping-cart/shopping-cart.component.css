@@ -1,0 +1,29 @@
+.content-main {
+  background-color: white;
+  max-width: 1170px;
+  width: 100%;
+  padding: 20px 20px;
+}
+.title {
+  text-align: center;
+}
+.backtohome-btn {
+  /*left: 15px;*/
+  font-size: 18px;
+  font-weight: 200;
+  /*margin-top: 9px;*/
+  padding-right: 15px;
+  /*padding-left: 15px;*/
+  text-decoration: none;
+}
+.list-item {
+  height: 194px;
+  padding: 30px 0;
+  border-bottom: 1px solid #ddd;
+}
+.validate {
+  font-size: 18px;
+  font-weight: 200;
+  float: right;
+  margin-top: 30px;
+}

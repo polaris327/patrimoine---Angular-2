@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import swal from 'sweetalert2';
 
 @Injectable()
 export class ShoppingCartService {
@@ -11,7 +12,14 @@ export class ShoppingCartService {
 
 
   public add(product: any){
-
+    for (let i = 0; i < this.products.length; i++)
+    {
+      if (product === this.products[i])
+      {
+        swal('Désolé...', 'Ce bien est déjà ajouté...', 'info');
+        return;
+      }
+    }
     this.products.push(product);
   }
 

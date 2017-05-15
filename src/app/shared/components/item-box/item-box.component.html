@@ -19,11 +19,11 @@
 <div *ngFor="let item of _initLoadCustomService.spaceData;let i = index;">
   <div class="list-item clearfix">
     <div class="item-img" *ngIf="_initLoadCustomService.thumbImgURL[i]">
-      <a (click)="_initLoadCustomService.gotoDetails(i)"><img [src]="_initLoadCustomService.thumbImgURL[i][0]" alt=""></a>
+      <a (click)="_initLoadCustomService.gotoDetails(item.id)"><img [src]="_initLoadCustomService.thumbImgURL[i][0]" alt=""></a>
     </div>
     <div class="inner">
       <div class="item-title">
-        <a (click)="_initLoadCustomService.gotoDetails(i)"  class="color-red">{{item.title}}</a>
+        <a (click)="_initLoadCustomService.gotoDetails(item.id)"  class="color-red">{{item.title}}</a>
       </div>
       <div class="fonttype1">
         <p align="left">Adresse<br/>Arrondissement</p>

@@ -23,7 +23,12 @@ export class DetailsContentComponent implements OnInit {
   ) {
     this.route.queryParams.subscribe(
         params => {
-          this.idx = params['id'];
+//          this.idx = params['id'];
+          let space_id:string = params['id'];
+          this._initLoadCustomService.spaceData.forEach(data => {
+            if (data['id'] == space_id )
+              this.idx = this._initLoadCustomService.spaceData.indexOf(data);
+          });
       }
     );
     console.log("Detail page id is ........ " + this.idx);

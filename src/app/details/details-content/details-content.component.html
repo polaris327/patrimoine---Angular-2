@@ -1,5 +1,5 @@
 <section class="content-bg">
-  <div class="notice-container" *ngIf="_initLoadCustomService.spaceData[idx] && _initLoadCustomService.docData[idx] && length > 0">
+  <div class="notice-container" *ngIf="_initLoadCustomService.spaceData[idx]">
     <div class="row">
       <div class="col-sm-4 details-left-panel">
         <div class="details-img">
@@ -22,7 +22,8 @@
       <div class="col-sm-8 details-right-panel">
         <a (click)="goBack()" class="backtohome-btn color-red">< retour à l’accueil</a>
         <h1 class="color-red">{{_initLoadCustomService.spaceData[idx].title}}</h1>
-        <app-cart-btn [product]="_initLoadCustomService.docData[idx]['id']"></app-cart-btn>
+        <!--<app-cart-btn *ngIf="_initLoadCustomService.docData[idx]" [product]="_initLoadCustomService.docData[idx]['id']"></app-cart-btn>-->
+        <app-cart-btn *ngIf="_initLoadCustomService.docData[idx]" [product]="idx"></app-cart-btn>
         <div class="fonttype1">
           <p align="left">Fonction<br/>Opération<br/>Adresse<br/>Arrondissement<br/>Date photo<br/>Date de réception<br/>HP<br/>Architecte<br/>Service<br/>Boîte ariane</p>
         </div>
@@ -31,7 +32,7 @@
         </div>
       </div>
     </div>
-    <app-pic-modal *ngIf="_initLoadCustomService.detailImgURL[idx][0] != '../../../assets/img/no-thumb.png'" [items]="_initLoadCustomService.spaceData[idx]['superfields']['opération']" [id]="idx"></app-pic-modal>
-    <!--<app-image-viewer [items]="_initLoadCustomService.spaceData[idx]['superfields']['opération']" [id]="idx"></app-image-viewer>-->
+    <!--<app-pic-modal *ngIf="_initLoadCustomService.detailImgURL[idx][0] != '../../../assets/img/no-thumb.png'" [items]="_initLoadCustomService.spaceData[idx]['superfields']['opération']" [id]="idx"></app-pic-modal>-->
+    <app-image-viewer *ngIf="_initLoadCustomService.detailImgURL[idx][0] != '../../../assets/img/no-thumb.png'" [items]="_initLoadCustomService.spaceData[idx]['superfields']['opération']" [id]="idx"></app-image-viewer>
   </div>
 </section>

@@ -103,11 +103,11 @@ export class SearchFilterBoxComponent implements OnInit {
   }
 
   listFormatter1 = (data: any) => {
-    return data.superfields.fonction;
+    return data.superfields.cotation;
   }
 
   valueFormatter1 = (data: any) => {
-    return data.superfields.fonction;
+    return data.superfields.cotation;
   }
 
   listFormatter2 = (data: any) => {
@@ -143,11 +143,11 @@ export class SearchFilterBoxComponent implements OnInit {
   }
 
   listFormatter6 = (data: any) => {
-    return data.superfields['date photo'];
+    return data.superfields['photographe'];
   }
 
   valueFormatter6 = (data: any) => {
-    return data.superfields['date photo'];
+    return data.superfields['photographe'];
   }
 
   protected onSelected($event, searchModeID:number):void {

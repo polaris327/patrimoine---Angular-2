@@ -1,5 +1,4 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { ShoppingCartService } from './shared/services/shopping-cart.service';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 
 @Component({
@@ -8,17 +7,10 @@ import { Location, LocationStrategy, PathLocationStrategy } from '@angular/commo
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  public shoppingCartItems$: any[];
 
   constructor(
-    public location: Location,
-    private _shoppingCartService: ShoppingCartService
+    public location: Location
   ) {
-
-    this.shoppingCartItems$ = this
-      ._shoppingCartService
-      .get();
-
   }
 
   goBack(): void {

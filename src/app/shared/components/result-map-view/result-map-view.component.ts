@@ -7,6 +7,7 @@ import { InitLoadCustomService } from '../../services/init-load-custom.service';
   styleUrls: ['./result-map-view.component.css']
 })
 export class ResultMapViewComponent implements DoCheck, OnChanges, OnInit {
+  abstract;
 
   constructor(
     private _initLoadCustomService: InitLoadCustomService
@@ -33,5 +34,4 @@ export class ResultMapViewComponent implements DoCheck, OnChanges, OnInit {
       lng: marker.getPosition().lng(),
       address: this._initLoadCustomService.mapAddressData[index]
     });
-  }
 }

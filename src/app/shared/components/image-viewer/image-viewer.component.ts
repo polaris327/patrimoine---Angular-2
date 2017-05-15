@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ViewChildren, QueryList, ElementRef } from '@angular/core';
 import { ModalDirective } from 'ng2-bootstrap';
 import { PublicService } from '../../services/public/public.service';
 import { InitLoadCustomService } from '../../services/init-load-custom.service';
@@ -11,6 +11,12 @@ import { InitLoadCustomService } from '../../services/init-load-custom.service';
 
 
 export class ImageViewerComponent implements OnInit {
+
+  //carousel
+  public myInterval: number = 15000;
+  public slides: any[] = [];
+  public activeSlideIndex: number;
+  public noWrapSlides:boolean = false;
 
   constructor(
     private _publicService: PublicService,
@@ -32,6 +38,7 @@ export class ImageViewerComponent implements OnInit {
     this._publicService.removeModalOpenObserver();
   }
 
+  //modal
   @Input()
     items:any = [];
   @Input()
@@ -47,8 +54,9 @@ export class ImageViewerComponent implements OnInit {
     this.myModal.hide();
   }
 
+  //canvas
   @ViewChild('canvas') private canvas:any;
-  @ViewChild('image') private image:any;
+  @ViewChildren('image') private images:QueryList<any>;
   @ViewChild('modalBody') modalBody:any;
   private element:any;
   private angleInDegrees = 0;
@@ -56,22 +64,21 @@ export class ImageViewerComponent implements OnInit {
   private currentScale = 1;
   private currentAngle = 0;
   private canvasWidth = 600;
-  private novosDadosTRBL;
-  private novosDadosWH;
-  private novosDadosW;
-  private novosDadosH;
-  private startX = false;
-  private startY = false;
+  private startX: any;
+  private startY: any;
   private isDown = false;
+  private fAfterViewInit = false;
+  private flag = 1;
 
   ngAfterViewInit() {
     //var canvas = this.elRef.nativeElement.querySelector('canvas');
     //var modalbody = this.elRef.nativeElement.querySelector('modalbody');
     this.element = this.canvas.nativeElement.getContext("2d");
     console.log("CANVAS..." + this.canvas.nativeElement);
-    console.log("IMAGE..." + this.image.nativeElement.width);
     console.log("modalbody..." +  this.modalBody.nativeElement.width);
     //this.canvas.nativeElement.width = angular.element('#image-zoom').width();
+    this.element.translate(this.canvas.nativeElement.width / 2, this.canvas.nativeElement.height / 2);
+    this.fAfterViewInit = true;
   }
 
   drawImage() {
@@ -79,7 +86,13 @@ export class ImageViewerComponent implements OnInit {
     this.element.save();
     this.element.scale(this.currentScale, this.currentScale);
     this.element.rotate(this.currentAngle * Math.PI / 180);
-    this.element.drawImage(this.image.nativeElement, -this.image.nativeElement.width / 2, -this.image.nativeElement.height / 2);
+    let n = 0;
+    this.images.forEach(image => {
+      if (n == this.activeSlideIndex)
+        this.element.drawImage(image.nativeElement, -image.nativeElement.width / 2, -image.nativeElement.height / 2);
+      n++;
+    });
+    //this.element.drawImage(this.images.first.nativeElement, -this.images.first.nativeElement.width / 2, -this.images.first.nativeElement.height / 2);
     this.element.restore();
   }
 
@@ -90,34 +103,6 @@ export class ImageViewerComponent implements OnInit {
       y: evt.clientY - rect.top
     };
   }
-
-  //method to get the mouse position when mouse button is down
-  //onmousedown (e: any) {
-  //  let pos = this.getMousePos(this.canvas.nativeElement, e);
-  //  this.startX = pos.x;
-  //  this.startY = pos.y;
-  //  this.isDown = true;
-  //}
-
-  ////method to update the image position in the canvas when it is dragged
-  //this.canvas.nativeElement.onmousemove(e) {
-  //  if (this.isDown === true) {
-  //    var pos = this.getMousePos(this.canvas.nativeElement, e);
-  //    var x = pos.x;
-  //    var y = pos.y;
-  //
-  //    this.element.translate(x - this.startX, y - this.startY);
-  //    this.drawImage();
-  //
-  //    this.startX = x;
-  //    this.startY = y;
-  //  }
-  //}
-  //
-  ////method to detect the mouse up for image dragging
-  //window.onmouseup(e) {
-  //  this.isDown = false;
-  //}
 
   //mouse wheel
   mouseWheelDir: string = '';
@@ -135,6 +120,82 @@ export class ImageViewerComponent implements OnInit {
     this.drawImage();
   }
 
-  clickon() {
+  mousedown(e: MouseEvent): void {
+    let pos = this.getMousePos(this.canvas.nativeElement, e);
+    this.startX = pos.x;
+    this.startY = pos.y;
+    this.isDown = true;
+  }
+
+  mousemove(e: MouseEvent): void {
+    if (this.isDown === true) {
+      let pos = this.getMousePos(this.canvas.nativeElement, e);
+      let x = pos.x;
+      let y = pos.y;
+
+      this.element.translate(x - this.startX, y - this.startY);
+      this.drawImage();
+
+      this.startX = x;
+      this.startY = y;
+    }
+  }
+
+  mouseup(e: MouseEvent): void {
+    this.isDown = false;
+  }
+
+  onZoomIn($event): void {
+    this.currentScale += this.zoomDelta;
+    this.drawImage();
+  }
+
+  onZoomOut($event): void {
+    this.currentScale -= this.zoomDelta;
+    this.drawImage();
+  }
+
+  onRotateToLeft($event): void {
+    //set the rotate angle for clockwise rotation
+    this.angleInDegrees = -5;
+    this.currentAngle += this.angleInDegrees;
+    this.drawImage();
+  }
+
+  onRotateToRight($event): void {
+    //set the rotate angle for clockwise rotation
+    this.angleInDegrees = 5;
+    this.currentAngle += this.angleInDegrees;
+    this.drawImage();
+  }
+
+  onReset($event): void {
+    this.element = this.canvas.nativeElement.getContext("2d");
+    this.angleInDegrees = 0;
+    this.currentScale = 1;
+    this.currentAngle = 0;
+    this.drawImage();
+    //this.element.translate(this.canvas.nativeElement.width / 2, this.canvas.nativeElement.height / 2);
+
+    ////for initial loading
+    //if(this.flag){
+    //  this.flag = 0;
+    //  this.drawImage();
+    //  this.element.translate(this.canvas.nativeElement.width / 2, this.canvas.nativeElement.height / 2);
+    //  setTimeout(function(){
+    //    //angular.element('#canvas').attr('data-girar', 0);
+    //    this.drawImage();
+    //  },1000);
+    //}
+    //else{
+    //  this.element.translate(0,0);
+    //  //angular.element('#canvas').attr('data-girar', 0);
+    //  this.drawImage();
+    //}
+  }
+
+  onSlideChanged(): void {
+    if (this.fAfterViewInit)
+      this.drawImage();
   }
 }

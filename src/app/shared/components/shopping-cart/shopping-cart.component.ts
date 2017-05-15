@@ -22,11 +22,6 @@ export class ShoppingCartComponent implements OnInit {
     this.products = this._shoppingCartService.get();
   }
 
-  removeFromCart(index: number) {
-    console.log(index);
-    this._shoppingCartService.remove(index);
-  }
-
   onValidate() {
     this._publicService.sendModalOpenEvent(true);
   }

@@ -9,6 +9,9 @@ export class MousewheelDirective {
 
   @Output() mouseWheelUp = new EventEmitter();
   @Output() mouseWheelDown = new EventEmitter();
+  //@Output() mouseDown = new EventEmitter();
+  //@Output() mouseMove = new EventEmitter();
+  //@Output() mouseUp = new EventEmitter();
 
   @HostListener('mousewheel', ['$event']) onMouseWheelChrome(event: any) {
     this.mouseWheelFunc(event);
@@ -21,6 +24,18 @@ export class MousewheelDirective {
   @HostListener('onmousewheel', ['$event']) onMouseWheelIE(event: any) {
     this.mouseWheelFunc(event);
   }
+
+  //@HostListener('mousedown', ['$event']) onMouseDownChrome(event: any) {
+  //  console.log("WAHAHAHAHAHADown....");
+  //}
+  //
+  //@HostListener('mousemove', ['$event']) onMousemove (event: any) {
+  //  console.log("WAHAHAHAHAHAMOVE....");
+  //}
+  //
+  //@HostListener('mouseup', ['$event']) onMouseUpChrome(event: any) {
+  //  console.log("WAHAHAHAHAHAUP....");
+  //}
 
   mouseWheelFunc(event: any) {
     var event = window.event || event; // old IE support
