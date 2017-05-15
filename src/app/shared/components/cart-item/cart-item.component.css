@@ -1,0 +1,20 @@
+div.item-img {
+  /*width: 152px;*/
+  /*height: 126px;*/
+  border: 1px solid #ddd;
+  padding:16px;
+  display: inline-block;
+  float: left;
+  margin-right: 20px;
+}
+div.item-img img {
+  width: 122px;
+  max-height: 100px;
+}
+.item-title {
+  font-size: 24px;
+  margin-top: 45px;
+}
+.btn-remove {
+  float: right;
+}

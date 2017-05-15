@@ -1,0 +1,6 @@
+<div class="item-img" *ngIf="_initLoadCustomService.thumbImgURL[idInDocData]">
+  <img [src]="_initLoadCustomService.thumbImgURL[idInDocData][0]" alt="">
+</div>
+<p class="item-title color-red">{{_initLoadCustomService.docData[idInDocData]['superfields']['opération']}}</p>
+<button type="button" class="btn btn-primary btn-remove" (click)="removeFromCart(idInProducts)">Enlever</button>
+
